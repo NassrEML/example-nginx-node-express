@@ -5,6 +5,6 @@ console.log(port);
 
 app.use(express.json())
 app.get('/', function (req, res) {
- res.send('Server listen on port'+ port)
+ res.send({message: 'Server listen on port'+ port})
 })
 app.listen(port);
