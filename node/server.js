@@ -1,9 +1,12 @@
-const express = require('express')
-const app = express()
-const port=process.env.PORT;
+const express = require('express');
+const app = express();
+const cors=require('cors');
+//const port=process.env.PORT;
+const port=3000;
 console.log(port);
 
-app.use(express.json())
+app.use(cors);
+app.use(express.json());
 app.get('/', function (req, res) {
  res.send({message: 'Server listen on port'+ port})
 })
