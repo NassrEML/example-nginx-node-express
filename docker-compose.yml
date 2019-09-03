@@ -12,7 +12,8 @@ services:
     ports:
       - 80:80
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./front/index.html:/var/www/html/index.html
   node1:
     build:
       context: ./node
@@ -20,8 +21,6 @@ services:
       args:
         - PORT=3000
     restart: always
-    ports:
-      - 3000:3000
   node2:
     build:
       context: ./node
@@ -29,5 +28,3 @@ services:
       args:
         - PORT=3001
     restart: always
-    ports:
-      - 3001:3001
